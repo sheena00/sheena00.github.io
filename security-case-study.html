@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Website Security Incident Response | Sheena Arayo</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    background-color: #0f0f0f;
+    color: white;
+    line-height: 1.6;
+}
+
+header {
+    background-color: #0f0f0f;
+    padding: 60px 20px;
+    text-align: center;
+    border-bottom: 3px solid #cc5500;
+}
+
+header h1 {
+    font-size: 2.5rem;
+}
+
+header p {
+    color: #cc5500;
+    margin-top: 10px;
+    font-size: 1.1rem;
+}
+
+section {
+    max-width: 1000px;
+    margin: 60px auto;
+    padding: 0 20px;
+}
+
+h2 {
+    color: #cc5500;
+    margin-bottom: 20px;
+    border-left: 5px solid #cc5500;
+    padding-left: 12px;
+}
+
+.card {
+    background-color: #1a1a1a;
+    padding: 25px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    border: 1px solid #2a2a2a;
+}
+
+.card p {
+    margin-bottom: 18px;
+}
+
+img {
+    width: 100%;
+    border-radius: 8px;
+    margin: 20px 0;
+    border: 1px solid #2a2a2a;
+}
+
+.image-row {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.image-row img {
+    width: 48%;
+}
+
+a {
+    color: #cc5500;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.back-button {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 10px 16px;
+    background: #cc5500;
+    color: #0f0f0f;
+    border-radius: 6px;
+}
+
+footer {
+    text-align: center;
+    padding: 40px 20px;
+    border-top: 2px solid #cc5500;
+    margin-top: 60px;
+    color: #888;
+}
+
+@media (max-width: 768px) {
+    .image-row {
+        flex-direction: column;
+    }
+    .image-row img {
+        width: 100%;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>Website Security Incident Response</h1>
+    <p>Japanese Keyword Hack (Dec 2024 – June 2025)</p>
+</header>
+
+<section>
+
+    <div class="card">
+        <h2>1. The Problem</h2>
+
+        <p>
+            At the end of December 2024, our website was hacked through an outdated Astra theme.
+            The visible pages of the website started showing Japanese words as page names.
+            When I updated the theme, the website looked normal again, but I suspected the issue
+            was not fully resolved.
+        </p>
+
+        <!-- Replace with your screenshot -->
+        <img src="assets/images/japanese-page-names.png" alt="Japanese page names on website">
+
+        <p>
+            After checking Google Search Console, I discovered that thousands of spam pages
+            had already been indexed. These pages were leading to different shopping websites.
+            The links were cloaked and could only be seen when accessed in incognito mode.
+            This meant the website was still compromised even though it looked clean on the surface.
+        </p>
+
+        <!-- Replace with your screenshot -->
+        <img src="assets/images/gsc-indexed-spam.png" alt="Indexed spam pages in Google Search Console">
+
+    </div>
+
+
+    <div class="card">
+        <h2>2. Diagnosis</h2>
+
+        <p>
+            I started by backing up the website and changing all credentials. I checked the root files and deleted suspicious files, but the hacker was able to regain access. I restored a previous clean backup, yet the reinfection continued. I then found obfuscated PHP code inserted at the top of my index.php file. I replaced the file, but the hack persisted, which suggested that the visible code was likely a distraction from a deeper backdoor.
+        </p>
+
+        <p>
+            I stopped all plugins except Elementor, removed unnecessary themes except Astra, and installed another SEO plugin to manage indexing. I ran checksums to identify mismatched core files and replaced any that did not match, including index.php. I ran scans using Sucuri and Wordfence, but neither detected malware.
+        </p>
+
+        <p>
+            While reviewing backup files, I discovered suspicious files I had never created, including files ending with “.tmb”. I isolated that folder from the main directory. I then installed MalCare to monitor downtime, file changes, and unauthorized logins. Eventually, I identified a malicious PHP file that was changing permissions of .htaccess and index.php to read-only, generating dynamic spam links, containing a backdoor, and using a self-deleting script. The script could be triggered by appending parameters to the website URL. This was the main persistence mechanism that allowed the hacker to regain access.
+        </p>
+
+
+    <div class="card">
+        <h2>3. Actions Taken</h2>
+
+        <p>
+            After identifying the malicious PHP file, I completely removed it from the server. I disabled file editing in WordPress to prevent direct theme and plugin modification. I cleaned the directory and replaced compromised files with verified versions. I disallowed file changes through configuration controls and strengthened access rules.
+        </p>
+
+        <p>
+            I then added Cloudflare in front of the website to provide firewall protection and filter malicious traffic. Over time, this helped block suspicious requests.
+        </p>
+
+        <p>
+            To prevent future incidents, I separated the admin account from the editor account, enabled two-factor authentication, limited access permissions, and changed all passwords associated with the website within the organization. I also deleted unnecessary themes and plugins to reduce the attack surface.
+        </p>
+    </div>
+
+
+    <div class="card">
+        <h2>4. Outcome</h2>
+
+        <p>
+            After several months of monitoring and hardening, the reinfection stopped completely. The spam pages were gradually removed from search engine indexing, and the website returned to normal operation. Comparing my January 2025 and current Google Search Console screenshots shows the reduction from thousands of indexed spam pages to a clean index status.
+        </p>
+
+        <p>
+            Since implementing these security measures, the website has remained stable with no further unauthorized access. The incident resulted in a significantly improved security posture, better access control, and stronger monitoring practices.
+        </p>
+
+        <div class="image-row">
+            <!-- Replace with your real file names -->
+            <img src="assets/images/gsc-january-2025.png" alt="January 2025 - Spam Indexed">
+            <img src="assets/images/gsc-current.png" alt="Current - Clean Indexing">
+        </div>
+
+        <p>
+            Since implementing these measures, the website has remained stable with no further
+            unauthorized access, resulting in improved security posture and stronger monitoring practices.
+        </p>
+
+        <a href="index.html" class="back-button">← Back to Portfolio</a>
+
+    </div>
+
+</section>
+
+<footer>
+    © 2026 Sheena Arayo
+</footer>
+
+</body>
+</html>
