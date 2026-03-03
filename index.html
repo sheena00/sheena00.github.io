@@ -1,23 +1,267 @@
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Your Name - Portfolio</title>
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sheena Arayo | Portfolio</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    background-color: #0f0f0f;
+    color: white;
+    line-height: 1.6;
+}
+
+header {
+    background-color: #0f0f0f;
+    padding: 60px 20px;
+    text-align: center;
+    border-bottom: 3px solid #cc5500;
+}
+
+header h1 {
+    font-size: 2.8rem;
+    color: #ffffff;
+}
+
+header p {
+    color: #cc5500;
+    margin-top: 10px;
+    font-size: 1.2rem;
+}
+
+section {
+    max-width: 1000px;
+    margin: 60px auto;
+    padding: 0 20px;
+}
+
+h2 {
+    color: #cc5500;
+    margin-bottom: 25px;
+    border-left: 5px solid #cc5500;
+    padding-left: 12px;
+}
+
+.hero {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 40px;
+}
+
+.hero img {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid #cc5500;
+}
+
+.hero-text {
+    flex: 1;
+}
+
+.card {
+    background-color: #1a1a1a;
+    padding: 25px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #2a2a2a;
+    transition: transform 0.2s ease, border 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    border: 1px solid #cc5500;
+}
+
+.work-title {
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+.work-type {
+    color: #cc5500;
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+}
+
+.skills span {
+    display: inline-block;
+    background-color: #cc5500;
+    color: #0f0f0f;
+    padding: 8px 14px;
+    margin: 6px 6px 0 0;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: bold;
+}
+
+a {
+    color: #cc5500;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+footer {
+    text-align: center;
+    padding: 40px 20px;
+    border-top: 2px solid #cc5500;
+    margin-top: 60px;
+    color: #888;
+}
+
+@media (max-width: 768px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+</style>
 </head>
+
 <body>
-    <h1>Your Name</h1>
-    <p>Welcome to my portfolio website.</p>
 
-    <h2>About Me</h2>
-    <p>I am a researcher with interests in data analysis, economics, and youth livelihoods.</p>
+<header>
+    <h1>Sheena Arayo</h1>
+    <p>Information Systems and Technology </p>
+</header>
 
-    <h2>Projects</h2>
-    <ul>
-        <li>Project 1 – Description</li>
-        <li>Project 2 – Description</li>
-    </ul>
+<section class="hero">
+    <img src="yourphoto.jpg" alt="Your Photo">
+    <div class="hero-text">
+        <h2>About Me</h2>
+        <p>
+            Hi I am Sheena, a data, systems and technology professional.My work involves setting up data 
+            collection systems, data cleaning and analysis, supporting cloud infrastructure, 
+            developing digital tools or pipelines ,and building dashboards that help teams understand their data better. 
+          
+        </p>
+    </div>
+</section>
 
+<section>
+    <h2>What I Do</h2>
+
+    <div class="card">
+        <div class="work-title">1. Data Extraction & Processing</div>
+        <div class="work-type">Field Data Collection | Cleaning | Analysis </div>
+        <p>
+            I design and implement data workflows that move from raw collection to 
+            structured, analysis-ready datasets. This includes survey processing, 
+            database querying, validation checks, cleaning pipelines, and 
+            statistical analysis to generate reliable evidence.
+        </p>
+      
+<p>
+<a href="https://github.com/sheena00/climate-hustlers-mbale" target="_blank" style="
+display:inline-block;
+margin-top:10px;
+padding:8px 14px;
+background:#cc5500;
+color:#0f0f0f;
+font-weight:bold;
+border-radius:5px;">
+View Example Project →
+</a>
+</p>
+
+    </div>
+
+    <div class="card">
+        <div class="work-title">2. Reporting and Generation of Insights </div>
+        <div class="work-type">Visualizations | Dashboards | Reports </div>
+        <p>
+             I translate analytical findings into clear reporting outputs, including 
+            visualizations, structured dashboards, and concise analytical summaries. 
+            My focus is not only on numbers, but on actionable insights that inform 
+            decision-making.
+        </p>
+    </div>
+
+    <div class="card">
+        <div class="work-title">3. Data Infrastructure and Tool Setup</div>
+        <div class="work-type">Cloud servers | Databases | Automation </div>
+        <p>
+            I configure systems that enable efficient data storage and retrieval, 
+            including cloud-based environments and automated extraction pipelines. 
+            This ensures scalability, reliability, and secure data management.
+        </p>
+    </div>
+    
+    <div class="card">
+        <div class="work-title">4. Development & Deployment</div>
+        <div class="work-type">Design | Implementation | Troubleshooting</div>
+        <p>
+            I contribute to the design and deployment of digital solutions, ensuring 
+            functionality across front-end and back-end systems. I troubleshoot 
+            performance issues and optimize workflows for stability and efficiency.
+        </p>
+        
+  <p>
+<a href="https://github.com/sheena00/climate-hustlers-mbale" target="_blank" style="
+display:inline-block;
+margin-top:10px;
+padding:8px 14px;
+background:#cc5500;
+color:#0f0f0f;
+font-weight:bold;
+border-radius:5px;">
+View Example Project →
+</a>
+</p>
+
+    </div>
+
+    <div class="card">
+        <div class="work-title">5. Systems Management & Security</div>
+        <div class="work-type">Web Management | Backend Oversight | Security Controls</div>
+        <p>
+            I oversee system performance and integrity, implementing security 
+            safeguards and maintaining web infrastructure to protect data assets 
+            and ensure consistent operational performance.
+        </p>
+    </div>
+    
+
+
+
+</section>
+
+<section>
+    <h2>Skills</h2>
+    <div class="skills">
+        <span>Stata</span>
+        <span>SQL</span>
+        <span>Python</span>
+        <span>AWS</span>
+        <span>Latex</span>
+    </div>
+</section>
+
+<section>
     <h2>Contact</h2>
-    <p>Email: your@email.com</p>
+    <div class="card">
+        <p>GitHub: <a href="#">github.com/sheena00</a></p>
+        <p>CV: <a href="#">Download PDF</a></p>
+    </div>
+</section>
+
+<footer>
+    © 2026 sheena arayo 
+</footer>
+
 </body>
 </html>
