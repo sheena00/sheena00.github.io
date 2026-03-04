@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Website Security Incident Response | Sheena Arayo</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    background-color: #0f0f0f;
+    color: white;
+    line-height: 1.6;
+}
+
+header {
+    background-color: #0f0f0f;
+    padding: 60px 20px;
+    text-align: center;
+    border-bottom: 3px solid #cc5500;
+}
+
+header h1 {
+    font-size: 2.5rem;
+}
+
+header p {
+    color: #cc5500;
+    margin-top: 10px;
+    font-size: 1.1rem;
+}
+
+section {
+    max-width: 1000px;
+    margin: 60px auto;
+    padding: 0 20px;
+}
+
+h2 {
+    color: #cc5500;
+    margin-bottom: 20px;
+    border-left: 5px solid #cc5500;
+    padding-left: 12px;
+}
+
+.card {
+    background-color: #1a1a1a;
+    padding: 25px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    border: 1px solid #2a2a2a;
+}
+
+.card p {
+    margin-bottom: 18px;
+}
+
+img {
+    width: 100%;
+    border-radius: 8px;
+    margin: 20px 0;
+    border: 1px solid #2a2a2a;
+}
+
+.image-row {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.image-row img {
+    width: 48%;
+}
+
+a {
+    color: #cc5500;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.back-button {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 10px 16px;
+    background: #cc5500;
+    color: #0f0f0f;
+    border-radius: 6px;
+}
+
+footer {
+    text-align: center;
+    padding: 40px 20px;
+    border-top: 2px solid #cc5500;
+    margin-top: 60px;
+    color: #888;
+}
+
+@media (max-width: 768px) {
+    .image-row {
+        flex-direction: column;
+    }
+    .image-row img {
+        width: 100%;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>Survey Solutions AWS Cloud Server Setup and Management</h1>
+    <p> For IFAD Agriculture study in Budaka and Bugweri districts</p>
+</header>
+
+<section>
+
+    <div class="card">
+        <h2>1. Context</h2>
+
+        <p>
+            During this agriculture study, the client delayed in providing a server and deadlines were catching up . So i went ahead to  set up an Amazon Web Services(AWS) server and hosted Surevy Solutions on it to support data collection and  team-based survey management.For this project, i was the AWS root user,RDP Administrator, Survey Solutions Administrator and the Headquarter account for Bugweri. 
+           
+        </p>
+        <!-- Replace with your screenshot -->
+      <h2>How this was setup </h2>
+        <img src="assets/Aws.drawio.png" alt="Japanese page names on website">
+
+
+    </div>
+
+    <div class="card">
+        <h2>Set-up</h2>
+
+        <p>
+           I created two main components in AWS: an EC2 instance running Windows Server 2019 to host the Survey Solutions application, and an RDS PostgreSQL instance to store the data. I configured security groups to control network access between the server and the database. The PostgreSQL database was set to private access only, so that it was not publicly accessible from the internet.
+        </p>
+        
+        <p>
+          After launching the EC2 instance, I connected to it using Remote Desktop (RDP). I installed Survey Solutions by downloading and running the installer. During installation, I configured the connection to the PostgreSQL database and set up the administrator account. I also adjusted the site bindings so the application would listen on HTTP instead of the default localhost configuration.
+        </p>
+
+        <p>
+            For backup and storage( survey had photos ), I created an Amazon S3 bucket and attached it to the EC2 instance using an IAM role. This allowed the server to access S3 without storing access keys directly on the machine. For monitoring, I enabled CloudWatch metrics and monitored database read and write latency. I also set up billing alarms to notify the finance team when costs exceeded particular thresholds.
+        </p>    
+
+           <p>
+            The system was successfully deployed, as the administrator i had a web interface where i monitored server health and other metrics,monitored data collection devices.  I created headquarter accounts for the associates leading data collection in the two districts and also the project team members from Apata and IFAD , World Bank. From the headquarter accounts, 2 supervisor accounts were created to allow supervisors easy login via the supervisor app. Enumerator accounts were also created and each enumerator was assigned a tablet for the project. 
+            I personalized the interviewer app to have our logo as seen below;
+            
+        </p>
+      <img src="assets/enumerator-logs.jpg" alt="word fence alert for hacker">
+     <p>
+          The server was closed after the study. Below is a screenshot showing the survey questionnaire being imported on the AWS-hosted Survey Solutions server   
+        </p> 
+            <img src="assets/import-questionnaire.jpg" alt="importing questionnaire screenshot">
+    </div>
+  
+
+</section>
+
+<footer>
+    © 2026 Sheena Arayo
+</footer>
+
+</body>
+</html>
